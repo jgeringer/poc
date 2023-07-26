@@ -30,8 +30,6 @@ export default function handler(
         })
     }).catch(error => {
         console.log(error)
-        res.status(500).json({
-            error
-        })
+        res.send({error})
     })
 }
