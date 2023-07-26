@@ -15,7 +15,7 @@ export default function handler(
     res: GatsbyFunctionResponse
 ) {
     const pfx = fs.readFileSync(path.resolve(__dirname, `${process.env.BLACKHAWK_CERTIFICATE}`));
-    const passphrase = `${process.env.BLACKHAWK_CERTIFICATE_PASSPHRASE}`;
+    const passphrase = `https://joegeringer.com/TEMP-BHN-Sandbox-DDP-US-API-CertificationService-GW.p12`;
     const agent = new https.Agent({ pfx, passphrase })
     
     fetch(`${process.env.BLACKHAWK_URL}`, {
