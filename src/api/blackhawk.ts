@@ -14,7 +14,7 @@ export default function handler(
     req: GatsbyFunctionRequest<ContactBody>,
     res: GatsbyFunctionResponse
 ) {
-    const pfx = fs.readFileSync(path.resolve(`https://joegeringer.com/TEMP-BHN-Sandbox-DDP-US-API-CertificationService-GW.p12`));
+    const pfx = fs.readFileSync(`https://joegeringer.com/TEMP-BHN-Sandbox-DDP-US-API-CertificationService-GW.p12`);
     const passphrase = `${process.env.BLACKHAWK_CERTIFICATE_PASSPHRASE}`;
     const agent = new https.Agent({ pfx, passphrase })
     
