@@ -18,7 +18,7 @@ export default function handler(
     res: GatsbyFunctionResponse
 ) {
     // const pfx = fs.readFileSync(require.resolve('./TEMP-BHN-Sandbox-DDP-US-API-CertificationService-GW.p12'));
-    const pfx = fs.readFileSync('./TEMP-BHN-Sandbox-DDP-US-API-CertificationService-GW.p12');
+    const pfx = fs.readFileSync('TEMP-BHN-Sandbox-DDP-US-API-CertificationService-GW.p12');
 
     pem.readPkcs12(pfx, { p12Password: `${process.env.BLACKHAWK_CERTIFICATE_PASSPHRASE}` }, (err, cert) => {
         console.log(cert);
