@@ -8,7 +8,7 @@ const IndexPage: React.FC<PageProps> = () => {
   // fetch api/blackhawk and alert the response on click
   const clickHandler = async () => {
     try {
-      const response = await fetch("/api/blackhawk");
+      const response = await fetch("/api/blackhawk/blackhawk");
       const data = await response.json();
       setData(data);
     } catch (e) {
