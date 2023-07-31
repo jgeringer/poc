@@ -4,6 +4,7 @@ import { responsiveImageSizes } from "gatsby-plugin-image/dist/src/image-utils";
 
 const IndexPage: React.FC<PageProps> = () => {
   const [data, setData] = React.useState({});
+  const [dataNetlify, setDataNetlify] = React.useState({});
 
   // fetch api/blackhawk and alert the response on click
   const clickHandler = async () => {
@@ -16,10 +17,19 @@ const IndexPage: React.FC<PageProps> = () => {
     }
   };
 
+  const clickHandlerNetlifyFunction = async () => {
+    const response = await fetch("/.netlify/functions/hello").then((response) =>
+      response.json()
+    );
+    setDataNetlify(response);
+  };
+
   return (
     <main>
       <button onClick={clickHandler}>Click me!!</button>
+      <button onClick={clickHandlerNetlifyFunction}>Click me Netlify!!</button>
       <pre>{JSON.stringify(data, null, 2)}</pre>
+      <pre>{JSON.stringify(dataNetlify, null, 2)}</pre>
     </main>
   );
 };
