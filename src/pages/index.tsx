@@ -18,8 +18,10 @@ const IndexPage: React.FC<PageProps> = () => {
   };
 
   const clickHandlerNetlifyFunction = async () => {
-    const response = await fetch("/.netlify/functions/hello").then((response) =>
-      response.json()
+    // run `ntl dev` to run netlify and see the funcitons working...
+    const response = await fetch("/.netlify/functions/hello").then(
+      (response) => console.log("response", response)
+      // response.json()
     );
     setDataNetlify(response);
   };

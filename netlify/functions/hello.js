@@ -5,35 +5,31 @@ const fs = require('fs');
 // import axios from "axios";
 const axios = require('axios');
 const fetch = require("node-fetch");
+// const pfx = require.resolve('../../src/TEMP-BHN-Sandbox-DDP-US-API-CertificationService-GW.p12')
 // essentially an AWS LAMBDA
 
 exports.handler = async (event, context) => {
 
-    // const data = {
-    //     hello: 'hello world!'
-    // };
-
-    // return {
-    //     statusCode: 200,
-    //     body: JSON.stringify({
-    //         message: 'hello world'
-    //     })
-    // }
-
     
-    const pfx = require(`../../files/TEMP-BHN-Sandbox-DDP-US-API-CertificationService-GW.p12`);
-    // const pfx = require('../../files/TEMP-BHN-Sandbox-DDP-US-API-CertificationService-GW.p12')
+    // const pfx = require(`../../files/TEMP-BHN-Sandbox-DDP-US-API-CertificationService-GW.p12`);
+
+    // const pfx = require('../../TEMP-BHN-Sandbox-DDP-US-API-CertificationService-GW.p12')
+
     // const pfx = fs.readFileSync('./files/TEMP-BHN-Sandbox-DDP-US-API-CertificationService-GW.p12');
     // const pfx = fs.readFileSync('TEMP-BHN-Sandbox-DDP-US-API-CertificationService-GW.p12');
-    const passphrase = '18XFL6K3ZJ3HKMCJTY7CLT3RRH';
+
+    const pfx = require.resolve('../../src/TEMP-BHN-Sandbox-DDP-US-API-CertificationService-GW.p12')
+
+    const passphrase = '6LNGQ4BGCCRJ2KDZHTTATFV2FR';
     const agent = new https.Agent({ pfx, passphrase })
 
-    fetch('https://api.certification.blackhawknetwork.com/eGiftManagement/v1/eGift/HYZW10690X0S2MTB95CX35AH2C', {
+    fetch('https://api.certification.blackhawknetwork.com/productCatalogManagement/v1/productCatalogs', {
         httpsAgent: agent
     })
-    .then(response => response.json())
+    // .then(response => response.json())
     .then(response => {
-        // console.dir(response, { depth: null })
+        console.log('response...')
+        console.log(response)
 
         // res.status(200).json({
         //     response
